@@ -45,6 +45,21 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Running the app with docker
+
+Build docker image
+```bash
+docker build -t achumak/nestjs .
+```
+Run docker container
+```bash
+run-nodejs-app.sh
+```
+### Benchmark an HTTP endpoint with [wrk](https://github.com/wg/wrk)
+```bash
+docker run --rm --net=nodejs_test --network-alias=nodejs williamyeh/wrk -t12 -c1800 -d15s --timeout 2s http://nodejs:3000/delay?ms=500
+```
+
 ## Test
 
 ```bash
